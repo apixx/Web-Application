@@ -15,9 +15,8 @@ namespace WebApplication
         {
             if (IsPostBack)
             {
-                var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
-                
-                connection.Open();
+                using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString)) { 
+
                 string checkUser = "SELECT COUNT(*) FROM STUDENT WHERE Username= '" + TextBoxUsername.Text + "'";
                 var command = new SqlCommand(checkUser, connection);
 
@@ -26,9 +25,7 @@ namespace WebApplication
                 {
                     Response.Write("User already exists");
                 }
-
-                connection.Close();
-
+                }
             }
         }
 
@@ -36,9 +33,8 @@ namespace WebApplication
         {
             try
             {
-                var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
+                using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString)) { 
 
-                connection.Open();
                 string insertQuery = "INSERT INTO Student (Username, Email, Password, Name, Address) values (@usern, @email, @password, @name, @address)";
                 var command = new SqlCommand(insertQuery, connection);
 
@@ -51,7 +47,7 @@ namespace WebApplication
                 command.ExecuteNonQuery();
                 Response.Write("Registration is Successful!");
                 Response.Redirect("Login.aspx");
-                connection.Close();
+                }
             }
             catch (Exception ex)
             {

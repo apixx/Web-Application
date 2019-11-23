@@ -9,7 +9,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:SqlDataSource ID="SqlDataSourceRegistration" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [Student]" SelectQuery="<%$ ConnectionStrings:RegistrationConnectionString %>"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSourceRegistration" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [Student]" ></asp:SqlDataSource>
+            <%--SelectQuery="<%$ ConnectionStrings:RegistrationConnectionString %>"--%>
             <asp:GridView ID="GridView1" runat="server" Height="158px" Width="629px" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="Id" DataSourceID="SqlDataSourceRegistration" ForeColor="Black" GridLines="Vertical">
                 <AlternatingRowStyle BackColor="#CCCCCC" />
                 <Columns>

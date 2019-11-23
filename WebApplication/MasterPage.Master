@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="WebApplication.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table style="font-family: Arial">
+            <tr>
+                <td colspan="2" style="width: 800px; height: 80px; background-color: #3399FF; text-align: center">
+                    <h1>Exam Registration
+                    </h1>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 500px; background-color: #e8e8e8; width: 150px">
+                    <%--<h3>Menu</h3>--%>
+                </td>
+                <td style="height: 500px; background-color: #e8e8e8; width: 650px">
+                    <%--<h3>content</h3>--%>
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="background-color: #3399FF; text-align: right">
+                    <b>Powdered by: Angel Donev</b>
+                </td>
+            </tr>
+        </table>
+
+
+
+    </form>
+</body>
+</html>
+
+
+
+<%--<div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+</div>--%>
