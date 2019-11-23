@@ -34,20 +34,10 @@ namespace WebApplication
                 var passwordCommand = new SqlCommand(checkPasswordQuery, connection);
                 string password = passwordCommand.ExecuteScalar().ToString().Replace(" ", "");
 
-                connection.Close();
-                connection.Open();
-                string checkAdminQuery = "SELECT IsAdmin FROM Student WHERE Username= '" + TextBoxUsername.Text + "'";
-                var isAdminCommand = new SqlCommand(checkAdminQuery, connection);
-                var isAdmin = Convert.ToBoolean(isAdminCommand.ExecuteScalar());
-
                 if (password == TextBoxPassword.Text)
                 {
                     Session["LoggedUser"] = TextBoxUsername.Text;
                     Response.Write("Password is correct");
-                    if (isAdmin == true)
-                    {
-                        Response.Redirect("Admin.aspx");
-                    }
                     Response.Redirect("Users.aspx");
                 }
                 else

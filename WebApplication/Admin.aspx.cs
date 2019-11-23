@@ -11,7 +11,16 @@ namespace WebApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["LoggedUser"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
 
+        protected void Btn_Logout_Click(object sender, EventArgs e)
+        {
+           
+            Response.Redirect("Users.aspx");
         }
     }
 }
